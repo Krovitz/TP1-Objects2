@@ -1,4 +1,4 @@
-package opp2.ejer2;
+package opp2.restaurante;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -58,4 +58,7 @@ public class Mesa {
                 .reduce(0f, Float::sum);
     }
 
+    void setRegistroCosto(RegistroCosto registroCosto) {
+        this.registroCosto = registroCosto;
+    }
 }

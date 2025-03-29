@@ -1,4 +1,4 @@
-package opp2.ejer2;
+package opp2.restaurante;
 
 public enum Propina {
     BAJO(0.02F),

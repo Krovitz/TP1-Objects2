@@ -1,7 +1,7 @@
 package opp2.persistencia;
 
 import opp2.ConnectionManager;
-import opp2.ejer1.RegistroInscripto;
+import opp2.concurso.RegistroInscripto;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,6 +14,7 @@ public class EnDataBaseRegistroInscripto implements RegistroInscripto {
     public void registro(LocalDate fechaInscripcion, int idParticipante, int idConcurso) {
         PreparedStatement statement = null;
         Connection conn = null;
+
         try {
             conn = ConnectionManager.getConnection();
 

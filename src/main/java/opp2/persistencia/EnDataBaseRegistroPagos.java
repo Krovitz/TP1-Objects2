@@ -1,7 +1,7 @@
 package opp2.persistencia;
 
 import opp2.ConnectionManager;
-import opp2.ejer2.RegistroCosto;
+import opp2.restaurante.RegistroCosto;
 
 import java.sql.Connection;
 import java.sql.Date;

@@ -1,4 +1,4 @@
-package opp2.ejer1;
+package opp2.concurso;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
@@ -6,7 +6,8 @@ import jakarta.mail.internet.MimeMessage;
 
 import java.util.Properties;
 
-public class MessageInscripto implements MailService {
+public class MailMessageInscripto implements MailService {
+    
     @Override
     public void sendMail(String nombreParticipante, String nombreConcurso) {
         // provide recipient's email ID
@@ -52,7 +53,6 @@ public class MessageInscripto implements MailService {
             // send the email message
             Transport.send(message);
 
-            System.out.println("Email Message Sent Successfully!");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);

@@ -1,4 +1,4 @@
-package opp2.ejer1;
+package opp2.concurso;
 
 public class FakeSendMail implements MailService {
     private String mensajeMail;
@@ -8,7 +8,7 @@ public class FakeSendMail implements MailService {
         this.mensajeMail = "Hola " + nombreParticipante + ", tu inscripcion al concurso '" + nombreConcurso + "' se ha realizado exitosamente!";
     }
 
-//    public String mensajeMail{
-//        return mensajeMail
-//    }
+    public String mensajeMail() {
+        return mensajeMail;
+    }
 }

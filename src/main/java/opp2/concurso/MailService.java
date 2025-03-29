@@ -1,4 +1,4 @@
-package opp2.ejer1;
+package opp2.concurso;
 
 public interface MailService {
     void sendMail(String nombreParticipante, String nombreConcurso);

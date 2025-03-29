@@ -1,4 +1,4 @@
-package opp2.ejer2;
+package opp2.restaurante;
 
 public abstract class Tarjeta {
     public static final String NUMERO_VACIO = "El número no puede ser vacío";

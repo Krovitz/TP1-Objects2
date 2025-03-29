@@ -1,17 +1,15 @@
-package opp2.ejer1;
+package opp2.concurso;
 
 import java.util.Objects;
 
 public class Participante {
     private static int contadorId = 1;
-    private String dni;
-    private int id;
-    private String nombre;
+    private final int id;
+    private final String nombre;
     private int puntos = 0;
 
-    public Participante(String nombre, String dni) {
+    public Participante(String nombre) {
         this.nombre = nombre;
-        this.dni = dni;
         this.id = contadorId++;
     }
 
@@ -19,11 +17,11 @@ public class Participante {
         this.puntos = cantidadPuntos;
     }
 
-    public int id() {
+    int id() {
         return id;
     }
 
-    public String nombre() {
+    String nombre() {
         return nombre;
     }
 
@@ -33,7 +31,7 @@ public class Participante {
         return Objects.equals(nombre, that.nombre);
     }
 
-    public int Puntos() {
+    int puntos() {
         return puntos;
     }
 

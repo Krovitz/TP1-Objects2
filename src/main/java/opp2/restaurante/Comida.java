@@ -1,11 +1,11 @@
-package opp2.ejer2;
+package opp2.restaurante;
 
-public class Bebida {
+public class Comida {
     public static final String PRECIO_INVALIDO = "El precio no puede ser negativo";
     private String nombre;
     private float precio;
 
-    public Bebida(String nombre, float precio) {
+    public Comida(String nombre, float precio) {
         checkPrecioIsValid(precio);
         this.nombre = nombre;
         this.precio = precio;

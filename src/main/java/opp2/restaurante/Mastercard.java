@@ -1,4 +1,4 @@
-package opp2.ejer2;
+package opp2.restaurante;
 
 public class Mastercard extends Tarjeta {
     private final float descuento;

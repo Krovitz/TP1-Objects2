@@ -1,6 +1,6 @@
 package opp2.persistencia;
 
-import opp2.ejer1.RegistroInscripto;
+import opp2.concurso.RegistroInscripto;
 
 import java.io.IOException;
 import java.nio.file.Files;

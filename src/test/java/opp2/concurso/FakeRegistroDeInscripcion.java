@@ -1,4 +1,4 @@
-package opp2.ejer1;
+package opp2.concurso;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ public class FakeRegistroDeInscripcion implements RegistroInscripto {
         this.content = text;
     }
 
-    public boolean startWith(String start) {
-        return this.content.startsWith(start);
+    public String content() {
+        return content;
     }
 }

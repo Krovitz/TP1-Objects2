@@ -1,6 +1,6 @@
 package opp2.persistencia;
 
-import opp2.ejer2.RegistroCosto;
+import opp2.restaurante.RegistroCosto;
 
 import java.io.IOException;
 import java.nio.file.Files;
