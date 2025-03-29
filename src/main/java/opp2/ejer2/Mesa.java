@@ -1,5 +1,6 @@
 package opp2.ejer2;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +8,13 @@ public class Mesa {
     private int nro;
     private List<Bebida> bebidas;
     private List<Comida> comidas;
+    private RegistroCosto registroCosto;
 
-    public Mesa(int nro) {
+    public Mesa(int nro, RegistroCosto registroPagos) {
         this.nro = nro;
         this.bebidas = new ArrayList<>();
         this.comidas = new ArrayList<>();
+        this.registroCosto = registroPagos;
     }
 
     public void agregarBebidas(Bebida bebida, int cantidad) {
@@ -32,9 +35,13 @@ public class Mesa {
             throw new RuntimeException("Cantidad nula de comidas");
     }
 
-    public float precioTotalConDescuento(Tarjeta tarjeta, Propina propina) {
+    public float precioTotal(Tarjeta tarjeta, Propina propina) {
         float totalConDescuento = tarjeta.aplicarDescuento(totalBebidas(), totalComidas());
-        return totalConDescuento + (totalConDescuento * propina.porcentaje());
+        ;
+        totalConDescuento += (totalConDescuento * propina.porcentaje());
+        registroCosto.registro(LocalDate.now(), totalConDescuento);
+        return totalConDescuento;
+
     }
 
     private float totalComidas() {

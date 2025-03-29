@@ -1,5 +1,7 @@
 package opp2.ejer2;
 
+import opp2.persistencia.EnDataBaseRegistroPagos;
+import opp2.persistencia.EnDiscoRegistroPagos;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +11,8 @@ public class MesaTest {
 
     @Test
     public void CalcularCostoVisaTest() {
-        Mesa mesa = new Mesa(2);
+        String path = "C:/Users/Tomas/Desktop/Pruebas-Costos-Restaurante.txt";
+        Mesa mesa = new Mesa(2, new EnDiscoRegistroPagos(path));
         Visa tarjeta = new Visa("1233445532321111", "Tomas");
         Comida comida = new Comida("Burger", 45.5F);
         Bebida bebida = new Bebida("Coca-Cola", 20F);
@@ -17,14 +20,30 @@ public class MesaTest {
         mesa.agregarComidas(comida, 3);
         mesa.agregarBebidas(bebida, 2);
 
-        float precioTotal = mesa.precioTotalConDescuento(tarjeta, Propina.MEDIO);
+        float precioTotal = mesa.precioTotal(tarjeta, Propina.MEDIO);
+
+        assertEquals(180.559F, precioTotal);
+    }
+
+    @Test
+    public void CalcularCostoVisaDataBaseTest() {
+        Mesa mesa = new Mesa(2, new EnDataBaseRegistroPagos()); //Se registra en la BD
+        Visa tarjeta = new Visa("1233445532321111", "Tomas");
+        Comida comida = new Comida("Burger", 45.5F);
+        Bebida bebida = new Bebida("Coca-Cola", 20F);
+
+        mesa.agregarComidas(comida, 3);
+        mesa.agregarBebidas(bebida, 2);
+
+        float precioTotal = mesa.precioTotal(tarjeta, Propina.MEDIO);
 
         assertEquals(180.559F, precioTotal);
     }
 
     @Test
     public void CalcularCostoMastercardTest() {
-        Mesa mesa = new Mesa(2);
+        String path = "C:/Users/Tomas/Desktop/Pruebas-Costos-Restaurante.txt";
+        Mesa mesa = new Mesa(2, new EnDiscoRegistroPagos(path));
         Mastercard tarjeta = new Mastercard("1233445532321111", "Tomas");
         Comida comida = new Comida("Burger", 45.5F);
         Bebida bebida = new Bebida("Coca-Cola", 20F);
@@ -32,14 +51,15 @@ public class MesaTest {
         mesa.agregarComidas(comida, 3);
         mesa.agregarBebidas(bebida, 2);
 
-        float precioTotal = mesa.precioTotalConDescuento(tarjeta, Propina.BAJO);
+        float precioTotal = mesa.precioTotal(tarjeta, Propina.BAJO);
 
         assertEquals(177.2454F, precioTotal);
     }
 
     @Test
     public void CalcularCostoComarcaPlusTest() {
-        Mesa mesa = new Mesa(2);
+        String path = "C:/Users/Tomas/Desktop/Pruebas-Costos-Restaurante.txt";
+        Mesa mesa = new Mesa(2, new EnDiscoRegistroPagos(path));
         ComarcaPlus tarjeta = new ComarcaPlus("1233445532321111", "Tomas");
         Comida comida = new Comida("Burger", 45.5F);
         Bebida bebida = new Bebida("Coca-Cola", 20F);
@@ -47,14 +67,15 @@ public class MesaTest {
         mesa.agregarComidas(comida, 3);
         mesa.agregarBebidas(bebida, 2);
 
-        float precioTotal = mesa.precioTotalConDescuento(tarjeta, Propina.ALTO);
+        float precioTotal = mesa.precioTotal(tarjeta, Propina.ALTO);
 
         assertEquals(181.6185F, precioTotal);
     }
 
     @Test
     public void CalcularCostoViedmaTest() {
-        Mesa mesa = new Mesa(2);
+        String path = "C:/Users/Tomas/Desktop/Pruebas-Costos-Restaurante.txt";
+        Mesa mesa = new Mesa(2, new EnDiscoRegistroPagos(path));
         Viedma tarjeta = new Viedma("1233445532321111", "Tomas");
         Comida comida = new Comida("Burger", 45.5F);
         Bebida bebida = new Bebida("Coca-Cola", 20F);
@@ -62,7 +83,7 @@ public class MesaTest {
         mesa.agregarComidas(comida, 3);
         mesa.agregarBebidas(bebida, 2);
 
-        float precioTotal = mesa.precioTotalConDescuento(tarjeta, Propina.ALTO);
+        float precioTotal = mesa.precioTotal(tarjeta, Propina.ALTO);
 
         assertEquals(185.325F, precioTotal);
     }
